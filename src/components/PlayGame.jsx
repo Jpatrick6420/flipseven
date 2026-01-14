@@ -3,13 +3,14 @@ function PlayGame({ players, setPlayers, setWinners }) {
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [tempScore, setTempScore] = useState(() =>
-    players.map((player) => ({ ...player, score: 0 }))
+    players.map((player) => ({ ...player, score: 0, prevScores: [] }))
   );
 
   const handleScoreChange = (input) => {
     setScore(input.target.value);
   };
-  const handleScoreSubmit = () => {
+  const handleScoreSubmit = (e) => {
+    e.preventDefault();
     setTempScore((prev) =>
       prev.map((player, i) => {
         return i === index ? { ...player, score } : player;
@@ -27,6 +28,8 @@ function PlayGame({ players, setPlayers, setWinners }) {
         return {
           ...player,
           score: Number(player.score) + Number(tempScore[i].score),
+          ///added teh current round scores to an array
+          prevScores: [...player.prevScores, Number(tempScore[i].score)],
         };
       });
       const winners = updatedPlayer.filter((player) => player.score >= 200);
@@ -37,6 +40,7 @@ function PlayGame({ players, setPlayers, setWinners }) {
     });
     setScore(0);
     setIndex(0);
+    console.log("players", players);
 
     setTempScore((prev) =>
       prev.map((player) => {
@@ -44,33 +48,41 @@ function PlayGame({ players, setPlayers, setWinners }) {
       })
     );
     // setGamePhase("between_rounds");
-
-    console.log("players", players);
   };
 
   return (
     <>
       {
-        <div className="name_section">
+        <form className="name_section" onSubmit={(e) => handleScoreSubmit(e)}>
           <label>What did {tempScore[index]?.name} score this round?</label>
           <input
             type="number"
             value={score}
             onChange={(e) => handleScoreChange(e)}
+            autoFocus
           />
-          <button onClick={handleScoreSubmit}>Submit</button>
+          <button onClick={(e) => handleScoreSubmit(e)}>Submit</button>
           <button onClick={handleEndRound}>End Round</button>
-        </div>
+        </form>
       }
-      <ul>
-        {tempScore.map((item, i) => {
-          return (
-            <li key={i + item.name}>
-              {item.name} score: {item.score}
-            </li>
-          );
-        })}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Round Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tempScore.map((item, i) => {
+            return (
+              <tr key={i + item.name}>
+                <td>{item.name} </td>
+                <td>{item.score}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </>
   );
 }

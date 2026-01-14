@@ -5,8 +5,10 @@ function AddPlayer({ handle, handlePhaseChange }) {
   const handleSubmitName = (e) => {
     e.preventDefault();
     if (playerName === "") return;
-    console.log("name submition", formatName(playerName));
-    handle((prev) => [...prev, { name: formatName(playerName), score: 0 }]);
+    handle((prev) => [
+      ...prev,
+      { name: formatName(playerName), score: 0, prevScores: [] },
+    ]);
     setPlayerName("");
   };
 

@@ -58,3 +58,6 @@ input {
   gap: 1rem;
   align-items: center;
 }
+table {
+  margin: 0 auto;
+}

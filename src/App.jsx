@@ -14,6 +14,7 @@ function App() {
     if (winners.length >= 1) {
       const gameWinner = winners.reduce((cum, cur) => {
         cum = cur.score > cum.score ? cur : cum;
+        console.log("cum", cum);
         return cum;
       });
       setGamePhase("game_over");
@@ -46,20 +47,50 @@ function App() {
       <table className="table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Score</th>
+            <th>Round</th>
+            {players.length > 0 &&
+              players.map((player, i) => {
+                return <th key={i + player.name}>{player.name}</th>;
+              })}
           </tr>
         </thead>
         <tbody>
-          {players.map((item, i) => {
-            return (
-              <tr key={i}>
-                <td>{item.name}</td>
-                <td> {item.score}</td>
+          {Array.from(
+            {
+              length: Math.max(
+                0,
+                ...players.map((p) => p.prevScores?.length ?? 0)
+              ),
+            },
+            (_, roundIdx) => (
+              <tr key={roundIdx}>
+                <td>{roundIdx + 1}</td>
+                {players.map((p) => (
+                  <td key={p.name}>{p.prevScores?.[roundIdx] ?? ""}</td>
+                ))}
               </tr>
-            );
-          })}
+            )
+          )}
+          {/* {players.length > 0 &&
+            players[0].prevScores.map((_, roundInd) => (
+              <tr key={roundInd}>
+                {players.map((player) => (
+                  <td key={player.name}>
+                    {player.prevScores[roundInd]?.score ?? ""}
+                  </td>
+                ))}
+              </tr>
+            ))} */}
         </tbody>
+        <tfoot>
+          <tr>
+            <td>Total Score</td>
+            {players.length > 0 &&
+              players.map((cur, i) => {
+                return <td key={i}>{cur.score}</td>;
+              })}
+          </tr>
+        </tfoot>
       </table>
     </section>
   );
