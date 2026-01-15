@@ -73,6 +73,8 @@ label {
 }
 input {
   padding: 4px 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .name_section {
