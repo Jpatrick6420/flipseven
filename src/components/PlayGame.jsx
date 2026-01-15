@@ -56,6 +56,7 @@ function PlayGame({ players, setPlayers, setWinners }) {
         <form className="round_section" onSubmit={(e) => handleScoreSubmit(e)}>
           <div>
             <label>What did {tempScore[index]?.name} score this round?</label>
+            <br />
             <input
               type="number"
               value={score}

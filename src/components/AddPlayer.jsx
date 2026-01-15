@@ -26,6 +26,7 @@ function AddPlayer({ handle, handlePhaseChange }) {
       <h1>Lets Play Flip 7</h1>
       <form onSubmit={(e) => handleSubmitName(e)}>
         <label htmlFor="enter_player_name">Enter Player Name</label>
+        <br />
         <input
           type="text"
           id="enter_player_name"
