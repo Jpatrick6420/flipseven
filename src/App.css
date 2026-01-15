@@ -17,6 +17,27 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.table_wrapper {
+  overflow-x: auto;
+}
+button {
+  background-color: blue;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin: 2rem 1rem;
+}
+table {
+  max-width: max-content;
+}
+table,
+td,
+th {
+  border: 1px solid;
+  padding: 2px;
+}
+.name_section {
+  white-space: nowrap;
+}
 
 @keyframes logo-spin {
   from {
@@ -45,6 +66,7 @@ ul {
 }
 table {
   width: 20rem;
+  font-size: 10px;
 }
 label {
   margin-right: 1rem;
@@ -60,4 +82,17 @@ input {
 }
 table {
   margin: 0 auto;
+}
+@media (min-width: 300px) and (max-width: 390px) {
+  label,
+  input,
+  button {
+    font-size: 12px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  table {
+    width: 100%;
+  }
 }

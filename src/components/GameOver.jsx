@@ -6,7 +6,9 @@ function GameOver({
   setTopPlayer,
 }) {
   const handleNewGame = () => {
-    setPlayers((prev) => prev.map((item) => ({ ...item, score: 0 })));
+    setPlayers((prev) =>
+      prev.map((item) => ({ ...item, score: 0, prevScores: [] }))
+    );
     setGamePhase("play");
     setWinners([]);
     setTopPlayer({});

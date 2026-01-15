@@ -32,9 +32,10 @@ function AddPlayer({ handle, handlePhaseChange }) {
           value={playerName}
           onChange={(e) => handleNameChange(e)}
         />
-
-        <button onClick={(e) => handleSubmitName(e)}>Enter</button>
-        <button onClick={handleSetupFinished}>Finish Setup</button>
+        <div>
+          <button onClick={(e) => handleSubmitName(e)}>Enter</button>
+          <button onClick={handleSetupFinished}>Finish Setup</button>
+        </div>
       </form>
     </>
   );

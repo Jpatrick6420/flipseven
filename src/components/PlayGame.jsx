@@ -53,16 +53,21 @@ function PlayGame({ players, setPlayers, setWinners }) {
   return (
     <>
       {
-        <form className="name_section" onSubmit={(e) => handleScoreSubmit(e)}>
-          <label>What did {tempScore[index]?.name} score this round?</label>
-          <input
-            type="number"
-            value={score}
-            onChange={(e) => handleScoreChange(e)}
-            autoFocus
-          />
-          <button onClick={(e) => handleScoreSubmit(e)}>Submit</button>
-          <button onClick={handleEndRound}>End Round</button>
+        <form className="round_section" onSubmit={(e) => handleScoreSubmit(e)}>
+          <div>
+            <label>What did {tempScore[index]?.name} score this round?</label>
+            <input
+              type="number"
+              value={score}
+              onChange={(e) => handleScoreChange(e)}
+              autoFocus
+            />
+          </div>
+
+          <div>
+            <button onClick={(e) => handleScoreSubmit(e)}>Submit</button>
+            <button onClick={handleEndRound}>End Round</button>
+          </div>
         </form>
       }
       <table>

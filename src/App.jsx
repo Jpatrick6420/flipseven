@@ -3,6 +3,7 @@ import "./App.css";
 import AddPlayer from "./components/AddPlayer";
 import PlayGame from "./components/PlayGame";
 import GameOver from "./components/GameOver";
+import Table from "./components/Table";
 
 function App() {
   const [players, setPlayers] = useState([]);
@@ -44,54 +45,7 @@ function App() {
         />
       )}
 
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Round</th>
-            {players.length > 0 &&
-              players.map((player, i) => {
-                return <th key={i + player.name}>{player.name}</th>;
-              })}
-          </tr>
-        </thead>
-        <tbody>
-          {Array.from(
-            {
-              length: Math.max(
-                0,
-                ...players.map((p) => p.prevScores?.length ?? 0)
-              ),
-            },
-            (_, roundIdx) => (
-              <tr key={roundIdx}>
-                <td>{roundIdx + 1}</td>
-                {players.map((p) => (
-                  <td key={p.name}>{p.prevScores?.[roundIdx] ?? ""}</td>
-                ))}
-              </tr>
-            )
-          )}
-          {/* {players.length > 0 &&
-            players[0].prevScores.map((_, roundInd) => (
-              <tr key={roundInd}>
-                {players.map((player) => (
-                  <td key={player.name}>
-                    {player.prevScores[roundInd]?.score ?? ""}
-                  </td>
-                ))}
-              </tr>
-            ))} */}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>Total Score</td>
-            {players.length > 0 &&
-              players.map((cur, i) => {
-                return <td key={i}>{cur.score}</td>;
-              })}
-          </tr>
-        </tfoot>
-      </table>
+      <Table data={players} />
     </section>
   );
 }
