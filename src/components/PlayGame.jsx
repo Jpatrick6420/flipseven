@@ -3,7 +3,7 @@ function PlayGame({ players, setPlayers, setWinners }) {
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [tempScore, setTempScore] = useState(() =>
-    players.map((player) => ({ ...player, score: 0, prevScores: [] }))
+    players.map((player) => ({ ...player, score: 0, prevScores: [] })),
   );
 
   const handleScoreChange = (input) => {
@@ -14,7 +14,7 @@ function PlayGame({ players, setPlayers, setWinners }) {
     setTempScore((prev) =>
       prev.map((player, i) => {
         return i === index ? { ...player, score } : player;
-      })
+      }),
     );
     setIndex((index) => {
       return index < players.length - 1 ? index + 1 : 0;
@@ -45,7 +45,7 @@ function PlayGame({ players, setPlayers, setWinners }) {
     setTempScore((prev) =>
       prev.map((player) => {
         return { ...player, score: 0 };
-      })
+      }),
     );
     // setGamePhase("between_rounds");
   };

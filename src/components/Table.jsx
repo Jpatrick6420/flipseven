@@ -4,7 +4,7 @@ function Table({ data }) {
       <table className="table">
         <thead>
           <tr>
-            <th>Round</th>
+            <th>{data[0].prevScores > 0 ? "Round" : ""}</th>
             {data.length > 0 &&
               data.map((player, i) => {
                 return <th key={i + player.name}>{player.name}</th>;
@@ -16,17 +16,17 @@ function Table({ data }) {
             {
               length: Math.max(
                 0,
-                ...data.map((p) => p.prevScores?.length ?? 0)
+                ...data.map((p) => p.prevScores?.length ?? 0),
               ),
             },
             (_, roundIdx) => (
-              <tr key={roundIdx}>
+              <tr key={roundIdx} className="table_row">
                 <td>{roundIdx + 1}</td>
                 {data.map((p) => (
                   <td key={p.name}>{p.prevScores?.[roundIdx] ?? ""}</td>
                 ))}
               </tr>
-            )
+            ),
           )}
         </tbody>
         <tfoot>

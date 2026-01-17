@@ -45,7 +45,7 @@ function App() {
         />
       )}
 
-      <Table data={players} />
+      {players.length > 0 && <Table data={players} />}
     </section>
   );
 }
