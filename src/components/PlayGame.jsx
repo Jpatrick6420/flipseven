@@ -40,7 +40,6 @@ function PlayGame({ players, setPlayers, setWinners }) {
     });
     setScore(0);
     setIndex(0);
-    console.log("players", players);
 
     setTempScore((prev) =>
       prev.map((player) => {

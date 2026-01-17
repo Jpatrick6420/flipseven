@@ -4,7 +4,16 @@
   padding: 2rem;
   text-align: center;
 }
-
+body {
+  background: linear-gradient(
+    to top right,
+    rgb(254, 122, 122),
+    rgb(255, 255, 154),
+    silver,
+    rgb(255, 183, 255),
+    rgb(132, 132, 250)
+  );
+}
 .logo {
   height: 6em;
   padding: 1.5em;
