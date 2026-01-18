@@ -27,6 +27,8 @@ button {
   padding: 8px 16px;
   border-radius: 4px;
   margin: 2rem 1rem;
+  overflow-y: scroll;
+  max-height: 100dvh;
 }
 
 table {
@@ -34,12 +36,14 @@ table {
   font-size: 12px;
   background-color: rgb(246, 246, 246);
   margin: 0 auto;
+  overflow-x: scroll;
 }
 table,
 td,
 th {
   border: 1px solid;
   padding: 2px;
+  max-width: fit-content;
 }
 /* .name_section {
   white-space: nowrap;
@@ -81,7 +85,6 @@ input {
     font-size: 2rem;
   }
   table {
-    width: 100dvw;
     font-size: 10px;
     overflow-x: scroll;
   }
