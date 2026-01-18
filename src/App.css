@@ -41,6 +41,7 @@ button {
 table {
   max-width: max-content;
   font-size: 12px;
+  background-color: rgb(246, 246, 246);
 }
 table,
 td,

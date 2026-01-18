@@ -1,13 +1,13 @@
 import { useState } from "react";
 function PlayGame({ players, setPlayers, setWinners }) {
   const [index, setIndex] = useState(0);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState("");
   const [tempScore, setTempScore] = useState(() =>
     players.map((player) => ({ ...player, score: 0, prevScores: [] })),
   );
 
   const handleScoreChange = (input) => {
-    setScore(input.target.value);
+    setScore(Number(input.target.value));
   };
   const handleScoreSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ function PlayGame({ players, setPlayers, setWinners }) {
     setIndex((index) => {
       return index < players.length - 1 ? index + 1 : 0;
     });
-    setScore(0);
+    setScore("");
   };
 
   const handleEndRound = () => {
