@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 100dvw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -13,19 +13,9 @@ body {
     rgb(255, 183, 255),
     rgb(132, 132, 250)
   );
+  max-width: 100dvw;
 }
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+
 .table_wrapper {
   overflow-x: auto;
   margin-top: 2rem;
@@ -42,6 +32,7 @@ table {
   max-width: max-content;
   font-size: 12px;
   background-color: rgb(246, 246, 246);
+  margin: 0 auto;
 }
 table,
 td,
@@ -49,24 +40,9 @@ th {
   border: 1px solid;
   padding: 2px;
 }
-.name_section {
+/* .name_section {
   white-space: nowrap;
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+} */
 
 .card {
   padding: 2em;
@@ -78,10 +54,7 @@ th {
 ul {
   list-style: none;
 }
-table {
-  width: 20rem;
-  font-size: 10px;
-}
+
 label {
   margin-right: 1rem;
 }
@@ -96,21 +69,19 @@ input {
   gap: 1rem;
   align-items: center;
 }
-table {
-  margin: 0 auto;
-  font-size: 12px;
-}
-@media (min-width: 300px) and (max-width: 390px) {
+
+@media (max-width: 413px) {
   label,
   input,
   button {
     font-size: 12px;
   }
   h1 {
-    font-size: 18px;
+    font-size: 2rem;
   }
   table {
-    width: 100%;
+    width: 100dvw;
     font-size: 10px;
+    overflow-x: scroll;
   }
 }

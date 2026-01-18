@@ -25,25 +25,27 @@ function App() {
 
   return (
     <section>
-      {gamePhase == "setup" && (
-        <AddPlayer handle={setPlayers} handlePhaseChange={setGamePhase} />
-      )}
-      {gamePhase == "play" && (
-        <PlayGame
-          players={players}
-          setPlayers={setPlayers}
-          setWinners={setWinners}
-        />
-      )}
-      {gamePhase == "game_over" && (
-        <GameOver
-          winner={topPlayer}
-          setPlayers={setPlayers}
-          setGamePhase={setGamePhase}
-          setWinners={setWinners}
-          setTopPlayer={setTopPlayer}
-        />
-      )}
+      <div>
+        {gamePhase == "setup" && (
+          <AddPlayer handle={setPlayers} handlePhaseChange={setGamePhase} />
+        )}
+        {gamePhase == "play" && (
+          <PlayGame
+            players={players}
+            setPlayers={setPlayers}
+            setWinners={setWinners}
+          />
+        )}
+        {gamePhase == "game_over" && (
+          <GameOver
+            winner={topPlayer}
+            setPlayers={setPlayers}
+            setGamePhase={setGamePhase}
+            setWinners={setWinners}
+            setTopPlayer={setTopPlayer}
+          />
+        )}
+      </div>
 
       {players.length > 0 && <Table data={players} />}
     </section>
