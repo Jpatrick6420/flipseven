@@ -88,4 +88,7 @@ input {
     font-size: 10px;
     overflow-x: scroll;
   }
+  .temp_score_table td th {
+    max-width: 10rem;
+  }
 }

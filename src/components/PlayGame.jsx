@@ -70,7 +70,7 @@ function PlayGame({ players, setPlayers, setWinners }) {
           </div>
         </form>
       }
-      <table>
+      <table className="temp_score_table">
         <thead>
           <tr>
             <th>Name</th>
