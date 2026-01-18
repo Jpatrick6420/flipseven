@@ -19,6 +19,7 @@ body {
 .table_wrapper {
   overflow-x: auto;
   margin-top: 2rem;
+  max-width: 80dvw;
 }
 button {
   background-color: blue;
