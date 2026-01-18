@@ -9,6 +9,13 @@ function PlayGame({ players, setPlayers, setWinners }) {
   const handleScoreChange = (input) => {
     setScore(Number(input.target.value));
   };
+  const handleUndoRound = () => {
+    if (players[0].prevScores.length <= 1) return;
+    const tempPlayers = [...players];
+    console.log(tempPlayers);
+    tempPlayers.forEach((player) => player.prevScores.pop());
+    setPlayers(tempPlayers);
+  };
   const handleScoreSubmit = (e) => {
     e.preventDefault();
     setTempScore((prev) =>
@@ -64,9 +71,14 @@ function PlayGame({ players, setPlayers, setWinners }) {
             />
           </div>
 
-          <div>
+          <div className="button_container">
             <button onClick={(e) => handleScoreSubmit(e)}>Submit</button>
             <button onClick={handleEndRound}>End Round</button>
+            {players[0].prevScores.length > 1 && (
+              <button className="undo_btn" onClick={handleUndoRound}>
+                Undo Round
+              </button>
+            )}
           </div>
         </form>
       }

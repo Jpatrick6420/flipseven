@@ -74,6 +74,17 @@ input {
   gap: 1rem;
   align-items: center;
 }
+.button_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  font-size: 10px;
+
+  padding: 8px;
+}
+.button_container > button {
+  width: 90%;
+}
 
 @media (max-width: 413px) {
   label,
@@ -88,7 +99,22 @@ input {
     font-size: 10px;
     overflow-x: scroll;
   }
+
   .temp_score_table td th {
     max-width: 10rem;
+  }
+  .button_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 10px;
+    padding: 8px;
+  }
+  .button_container > button {
+    width: 100%;
+  }
+  .undo_btn {
+    grid-column: span 2;
+    width: 100%;
   }
 }
